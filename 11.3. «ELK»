@@ -3,7 +3,7 @@
 
 Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным Elasticsearch. 
 Где будет виден нестандартный cluster_name.
-
+https://github.com/teplodizain/gitlab-hw/blob/main/11.3.1.png
 Задание 2. Kibana
 Установите и запустите Kibana.
 
