@@ -50,6 +50,7 @@ xpack.monitoring:
   elasticsearch:
     hosts: ["http://192.168.0.101:9200/"]
     
+
 ![Скриншот-1](https://github.com/teplodizain/gitlab-hw/blob/main/JPG/ELK/11.3.3.6.png)
     
     Добрый день, индексов logstash и filebeat нет в kibana.
