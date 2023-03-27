@@ -1,7 +1,3 @@
-![Скриншот-1](https://github.com/teplodizain/gitlab-hw/blob/main/JPG/ELK/11.3.3.6.png)
-
-![Скриншот-1](https://github.com/teplodizain/gitlab-hw/blob/main/JPG/ELK/11.3.1.1.png)
-
 /etc/logstash/conf.d/input.conf
 
 input {
@@ -57,11 +53,5 @@ xpack.monitoring:
 
 ![Скриншот-1](https://github.com/teplodizain/gitlab-hw/blob/main/JPG/ELK/11.3.3.6.png)
 
-![Скриншот-1](https://github.com/teplodizain/gitlab-hw/blob/main/JPG/ELK/11.3.1.1.png)
     
     Добрый день, индексов logstash и filebeat нет в kibana.
-
-
-![Скриншот-1](https://github.com/teplodizain/gitlab-hw/blob/main/JPG/ELK/11.3.3.6.png)
-
-![Скриншот-1](https://github.com/teplodizain/gitlab-hw/blob/main/JPG/ELK/11.3.1.1.png)
