@@ -1,0 +1,51 @@
+/etc/logstash/conf.d/input.conf
+
+input {
+  file {
+    path => "/var/log/nginx/access.log"
+    start_position => "beginning"
+  }
+}
+filter {
+    grok {
+        match => { "message" => "%{IPORHOST:remote_ip} - %{DATA:user_name}[%{HTTPDATE:access_time}] "%{WORD:http_method} %{DATA:url}
+    HTTP/%{NUMBER:http_version}" %{NUMBER:response_code} %{NUMBER:body_sent_bytes}"%{DATA:referrer}" "%{DATA:agent}"" }
+    }
+    mutate {
+        remove_field => [ "host" ]
+    }
+}
+output {
+    elasticsearch {
+        hosts => "192.168.0.101:9200"
+        data_stream => "true"
+    }
+}
+/etc/filebeat/filebeat.yml
+
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+      - /var/log/nginx/-access.log
+  fields:
+    type: nginx_access
+  fields_under_root: true
+  scan_frequency: 5s
+
+- type: log
+  enabled: true
+  paths:
+      - /var/log/nginx/-error.log
+  fields:
+    type: nginx_error
+  fields_under_root: true
+  scan_frequency: 5s
+
+output.logstash:
+  hosts: ["192.168.0.101:5044"]
+
+xpack.monitoring:
+  enabled: true
+  elasticsearch:
+    hosts: ["http://192.168.0.101:9200/"]
